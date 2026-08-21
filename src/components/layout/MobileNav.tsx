@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { navItems } from "@/data/content.config";
 import { Glyph } from "@/components/decorations/Glyph";
 import { GridBackground } from "@/components/decorations/GridBackground";
+import { MarksOverlay } from "@/components/decorations/MarksOverlay";
 
 /**
  * Mobile navigation sheet — full-screen overlay.
@@ -51,11 +52,12 @@ export function MobileNav() {
       {/* Sheet overlay */}
       {open && (
         <div className="mobile-sheet" role="dialog" aria-label="Navigation">
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden" style={{ minHeight: "100%", paddingBottom: 40 }}>
             <GridBackground />
+            <MarksOverlay />
 
             <div className="mobile-bar">
-              <span className="lbl">index</span>
+              <span className="lbl lbl-ink">FORM NV-00 &nbsp;·&nbsp; INDEX OF RECORDS</span>
               <button
                 onClick={toggle}
                 className="mobile-close"
@@ -78,7 +80,7 @@ export function MobileNav() {
                       >
                         <span className="mobile-swatch" />
                         <span className="mobile-name">{item.label}</span>
-                        <Glyph name="chevron" className="ml-auto" size={16} />
+                        <span className="mobile-arrow">→</span>
                       </Link>
                     </li>
                   );
@@ -89,7 +91,7 @@ export function MobileNav() {
         </div>
       )}
 
-      <style jsx>{`
+      <style jsx global>{`
         .mobile-trigger {
           display: none;
           cursor: pointer;
@@ -122,9 +124,10 @@ export function MobileNav() {
           inset: 0;
           z-index: 100;
           overflow: auto;
-          padding: 18px 16px 28px;
-          background: var(--stock);
-          color: var(--on-stock);
+          padding: 24px 20px;
+          background: var(--paper);
+          color: var(--ink);
+          animation: fade-in 0.15s ease-out;
         }
         .mobile-bar {
           position: relative;
@@ -133,17 +136,18 @@ export function MobileNav() {
           align-items: center;
           justify-content: space-between;
           gap: 16px;
-          border-bottom: var(--border-slab) solid var(--on-stock);
+          border-bottom: var(--border-slab) solid var(--ink);
           padding-bottom: 14px;
-          margin-bottom: 22px;
+          margin-bottom: 24px;
         }
         .mobile-close {
           cursor: pointer;
           display: inline-flex;
-          padding: 10px;
-          border: var(--border-card) solid var(--on-stock);
-          background: none;
-          color: var(--on-stock);
+          padding: 8px;
+          border: var(--border-card) solid var(--ink);
+          background: var(--paper);
+          color: var(--ink);
+          box-shadow: 3px 3px 0 var(--ink);
         }
         .mobile-list {
           position: relative;
@@ -153,39 +157,54 @@ export function MobileNav() {
           list-style: none;
           margin: 0;
           padding: 0;
-          display: grid;
-          gap: 14px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
         }
         .mobile-row {
           display: flex;
           align-items: center;
-          gap: 14px;
-          padding: 16px;
-          border: var(--border-card) solid var(--edge);
-          box-shadow: var(--shadow-md);
+          padding: 16px 20px;
+          border: var(--border-card) solid var(--ink);
+          box-shadow: 4px 4px 0 var(--ink);
           background: var(--stock);
           color: var(--on-stock);
           font-family: var(--font-mono);
-          font-size: 1.05rem;
+          font-size: 1.15rem;
           font-weight: 700;
           text-transform: lowercase;
           letter-spacing: 0.02em;
+          text-decoration: none;
         }
         .mobile-swatch {
           width: 18px;
           height: 18px;
           flex: none;
-          border: var(--border-card) solid var(--on-stock);
-        }
-        .mobile-name {
-          min-width: 0;
+          border: 2px solid var(--ink);
+          background: transparent;
+          margin-right: 14px;
         }
         .mobile-row.on .mobile-swatch {
-          background: var(--on-stock);
+          background: var(--ink);
         }
-        .mobile-row:active {
-          box-shadow: 0 0 0 var(--edge);
-          translate: var(--press) var(--press);
+        .mobile-name {
+          flex: 1;
+        }
+        .mobile-arrow {
+          font-family: var(--font-mono);
+          font-weight: 700;
+          font-size: 1.2rem;
+        }
+
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `}</style>
     </>
