@@ -1,11 +1,13 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { SectionReveal } from "./SectionReveal";
 
 /**
  * SectionBlock — a section within a page with heading and grid.
  * Used on the overview page and individual section pages.
+ * Supports an optional "ALL X →" action button.
  */
 export function SectionBlock({
   formLabel,
@@ -14,6 +16,8 @@ export function SectionBlock({
   id,
   children,
   isFirst = false,
+  actionLabel,
+  actionHref,
 }: {
   formLabel: string;
   subtitle: string;
@@ -21,6 +25,8 @@ export function SectionBlock({
   id: string;
   children: React.ReactNode;
   isFirst?: boolean;
+  actionLabel?: string;
+  actionHref?: string;
 }) {
   return (
     <SectionReveal>
@@ -34,6 +40,11 @@ export function SectionBlock({
               {title}
             </h2>
           </div>
+          {actionLabel && actionHref && (
+            <Link href={actionHref} className="app-btn sec-action">
+              {actionLabel}
+            </Link>
+          )}
         </header>
 
         <div className="sec-grid">{children}</div>

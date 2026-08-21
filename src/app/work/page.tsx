@@ -29,14 +29,15 @@ export default function WorkPage() {
           subtitle={meta.subtitle}
         >
           <div className="content-grid">
-            {work.map((w) => (
-              <SectionReveal key={w.company}>
+            {work.map((w, i) => (
+              <SectionReveal key={w.company + w.role}>
                 <LedgerCard
                   stock={w.stock}
                   headTitle={w.role}
                   headSubtitle={w.company}
                   date={w.period}
                   status={w.status}
+                  number={`no. WK-${String(i + 1).padStart(4, "0")}`}
                 >
                   <p className="prose-form">{w.summary}</p>
                   {w.bullets && (

@@ -30,11 +30,27 @@ export function Ticker() {
           className="ticker-tape"
           style={{ animationDuration: `${(ticker.length + 1) * 10}s` }}
         >
-          {cells}
-          {balanceCell}
+          {ticker.map((t, i) => (
+            <span key={`a-${i}`} className="ticker-cell">
+              <span className="ticker-sym">∆</span>
+              {t.date} · {t.org} · {t.detail} · {t.status}
+            </span>
+          ))}
+          <span key="balance-a" className="ticker-cell">
+            <span className="ticker-sym">∆</span>
+            balance carried forward ·············· portfolio
+          </span>
           {/* Duplicate for seamless loop */}
-          {cells}
-          {balanceCell}
+          {ticker.map((t, i) => (
+            <span key={`b-${i}`} className="ticker-cell">
+              <span className="ticker-sym">∆</span>
+              {t.date} · {t.org} · {t.detail} · {t.status}
+            </span>
+          ))}
+          <span key="balance-b" className="ticker-cell">
+            <span className="ticker-sym">∆</span>
+            balance carried forward ·············· portfolio
+          </span>
         </div>
       </div>
 

@@ -6,7 +6,8 @@ import { LedgerStamp } from "@/components/decorations/LedgerStamp";
 /**
  * LedgerCard — the core brutalist card component.
  * Features: CardPlate (offset shadow), CardNotch (corner cut),
- * inverted header, and optional stamp.
+ * inverted header with sequential number, date bar inside body,
+ * and optional stamp.
  */
 export function LedgerCard({
   stock,
@@ -15,6 +16,7 @@ export function LedgerCard({
   date,
   status,
   stampRotation,
+  number,
   children,
 }: {
   stock: StockColor;
@@ -23,6 +25,7 @@ export function LedgerCard({
   date?: string;
   status?: EntryStatus;
   stampRotation?: number;
+  number?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -33,21 +36,28 @@ export function LedgerCard({
 
         <article className="app-card app-notch">
           {/* Inverted header */}
-          <header className="app-card-head flex items-start justify-between gap-3">
-            <div className="min-w-0">
-              <h3 className="card-title">{headTitle}</h3>
-              {headSubtitle && (
-                <p className="card-subtitle">{headSubtitle}</p>
-              )}
+          <header className="app-card-head">
+            <div className="card-head-inner">
+              <div className="min-w-0">
+                <h3 className="card-title">{headTitle}</h3>
+                {headSubtitle && (
+                  <p className="card-subtitle">{headSubtitle}</p>
+                )}
+              </div>
+              {number && <span className="card-num lbl">{number}</span>}
             </div>
           </header>
+
+          {/* Date bar */}
+          {date && (
+            <div className="card-date-bar">
+              <span className="lbl">{date}</span>
+            </div>
+          )}
 
           {/* Card body */}
           <div className="card-body">{children}</div>
         </article>
-
-        {/* Date below card */}
-        {date && <p className="lbl card-date">{date}</p>}
       </div>
 
       {/* Stamp */}
@@ -78,21 +88,29 @@ export function LedgerCard({
           pointer-events: none;
           transition: translate 0.18s ease, rotate 0.18s ease;
         }
-        .card-wrapper:hover .plate {
-          translate: 12px 12px;
-          rotate: var(--tilt);
+        @media (hover: hover) {
+          .card-wrapper:hover .plate {
+            translate: 12px 12px;
+            rotate: var(--tilt);
+          }
         }
         .card-wrapper .app-card {
           position: relative;
           z-index: 1;
         }
+        .card-head-inner {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 12px;
+        }
         .card-title {
-          font-family: var(--font-sans);
-          font-size: 1rem;
-          font-weight: 700;
+          font-family: var(--font-display);
+          font-size: 0.92rem;
+          font-weight: 400;
           line-height: 1.25;
-          letter-spacing: 0.01em;
-          text-transform: none;
+          letter-spacing: 0.03em;
+          text-transform: uppercase;
           margin: 0;
         }
         .card-subtitle {
@@ -103,6 +121,20 @@ export function LedgerCard({
           margin: 4px 0 0;
           opacity: 0.72;
         }
+        .card-num {
+          flex: none;
+          white-space: nowrap;
+          opacity: 0.5;
+        }
+        .card-date-bar {
+          padding: 6px 16px;
+          background: var(--stock);
+        }
+        @media (min-width: 640px) {
+          .card-date-bar {
+            padding: 6px 20px;
+          }
+        }
         .card-body {
           padding: 16px;
         }
@@ -110,9 +142,6 @@ export function LedgerCard({
           .card-body {
             padding: 20px;
           }
-        }
-        .card-date {
-          margin: 6px 0 0;
         }
         .stamp-pos {
           position: absolute;

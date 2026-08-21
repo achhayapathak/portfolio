@@ -5,6 +5,7 @@ import { PageSheet } from "@/components/content/PageSheet";
 import { SectionBlock } from "@/components/content/SectionBlock";
 import { LedgerCard } from "@/components/content/LedgerCard";
 import { TagList } from "@/components/content/TagList";
+import Link from "next/link";
 import {
   work,
   projects,
@@ -33,22 +34,38 @@ export default function OverviewPage() {
           title={sectionMeta.overview.title}
           subtitle={sectionMeta.overview.subtitle}
         >
-          {/* Work */}
+          {/* Lede */}
+          <p
+            className="prose-form"
+            style={{
+              maxWidth: "56ch",
+              marginBottom: 30,
+              color: "color-mix(in srgb, var(--on-stock) 76%, var(--stock))",
+            }}
+          >
+            Everything on this site in brief — the latest two entries from each
+            section, with the full ledger one click away.
+          </p>
+
+          {/* ── Work ────────────────────────────────────── */}
           <SectionBlock
             formLabel={`form ${sectionMeta.work.form}`}
             subtitle={sectionMeta.work.subtitle}
             title={sectionMeta.work.title}
             id="work"
             isFirst
+            actionLabel={`All ${work.length} Roles →`}
+            actionHref="/work"
           >
-            {topWork.map((w) => (
+            {topWork.map((w, i) => (
               <LedgerCard
-                key={w.company}
+                key={w.company + w.role}
                 stock={w.stock}
                 headTitle={w.role}
                 headSubtitle={w.company}
                 date={w.period}
                 status={w.status}
+                number={`no. WK-${String(i + 1).padStart(4, "0")}`}
               >
                 <p className="prose-form card-summary">{w.summary}</p>
                 <TagList tags={w.tags} />
@@ -56,14 +73,16 @@ export default function OverviewPage() {
             ))}
           </SectionBlock>
 
-          {/* Projects */}
+          {/* ── Projects ────────────────────────────────── */}
           <SectionBlock
             formLabel={`form ${sectionMeta.projects.form}`}
             subtitle={sectionMeta.projects.subtitle}
             title={sectionMeta.projects.title}
             id="projects"
+            actionLabel={`All ${projects.length} Projects →`}
+            actionHref="/projects"
           >
-            {topProjects.map((p) => (
+            {topProjects.map((p, i) => (
               <LedgerCard
                 key={p.name}
                 stock={p.stock}
@@ -71,6 +90,7 @@ export default function OverviewPage() {
                 headSubtitle={p.tagline}
                 date={p.period}
                 status={p.status}
+                number={`no. PR-${String(i + 1).padStart(4, "0")}`}
               >
                 <p className="prose-form card-summary">{p.summary}</p>
                 <TagList tags={p.tags} />
@@ -90,14 +110,16 @@ export default function OverviewPage() {
             ))}
           </SectionBlock>
 
-          {/* Certifications */}
+          {/* ── Certifications ──────────────────────────── */}
           <SectionBlock
             formLabel={`form ${sectionMeta.certifications.form}`}
             subtitle={sectionMeta.certifications.subtitle}
             title={sectionMeta.certifications.title}
             id="certifications"
+            actionLabel={`All ${certifications.length} Credentials →`}
+            actionHref="/certifications"
           >
-            {topCerts.map((c) => (
+            {topCerts.map((c, i) => (
               <LedgerCard
                 key={c.name}
                 stock={c.stock}
@@ -105,6 +127,7 @@ export default function OverviewPage() {
                 headSubtitle={c.issuer}
                 date={c.date}
                 status={c.status}
+                number={`no. CT-${String(i + 1).padStart(4, "0")}`}
               >
                 {c.credentialId && (
                   <p className="lbl" style={{ marginTop: 4 }}>
@@ -115,14 +138,16 @@ export default function OverviewPage() {
             ))}
           </SectionBlock>
 
-          {/* Education */}
+          {/* ── Education ───────────────────────────────── */}
           <SectionBlock
             formLabel={`form ${sectionMeta.education.form}`}
             subtitle={sectionMeta.education.subtitle}
             title={sectionMeta.education.title}
             id="education"
+            actionLabel={`All ${education.length} Entries →`}
+            actionHref="/education"
           >
-            {topEdu.map((e) => (
+            {topEdu.map((e, i) => (
               <LedgerCard
                 key={e.institution}
                 stock={e.stock}
@@ -130,6 +155,7 @@ export default function OverviewPage() {
                 headSubtitle={e.institution}
                 date={e.period}
                 status={e.status}
+                number={`no. ED-${String(i + 1).padStart(4, "0")}`}
               >
                 {e.summary && (
                   <p className="prose-form card-summary">{e.summary}</p>
@@ -138,14 +164,16 @@ export default function OverviewPage() {
             ))}
           </SectionBlock>
 
-          {/* Volunteering */}
+          {/* ── Volunteering ────────────────────────────── */}
           <SectionBlock
             formLabel={`form ${sectionMeta.volunteering.form}`}
             subtitle={sectionMeta.volunteering.subtitle}
             title={sectionMeta.volunteering.title}
             id="volunteering"
+            actionLabel={`All ${volunteering.length} Roles →`}
+            actionHref="/volunteering"
           >
-            {topVol.map((v) => (
+            {topVol.map((v, i) => (
               <LedgerCard
                 key={v.org}
                 stock={v.stock}
@@ -153,6 +181,7 @@ export default function OverviewPage() {
                 headSubtitle={v.org}
                 date={v.period}
                 status={v.status}
+                number={`no. VL-${String(i + 1).padStart(4, "0")}`}
               >
                 {v.summary && (
                   <p className="prose-form card-summary">{v.summary}</p>

@@ -75,7 +75,7 @@ export function MarksOverlay({ marks = defaultMarks }: { marks?: Mark[] }) {
     <div
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-      style={{ color: "var(--ink)" }}
+      style={{ color: "var(--on-stock)", opacity: 0.1 }}
     >
       {marks.map((m, i) => (
         <div

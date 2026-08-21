@@ -29,7 +29,7 @@ export default function ProjectsPage() {
           subtitle={meta.subtitle}
         >
           <div className="content-grid">
-            {projects.map((p) => (
+            {projects.map((p, i) => (
               <SectionReveal key={p.name}>
                 <LedgerCard
                   stock={p.stock}
@@ -37,6 +37,7 @@ export default function ProjectsPage() {
                   headSubtitle={p.tagline}
                   date={p.period}
                   status={p.status}
+                  number={`no. PR-${String(i + 1).padStart(4, "0")}`}
                 >
                   <p className="prose-form">{p.summary}</p>
                   <TagList tags={p.tags} />
