@@ -103,11 +103,11 @@ export interface NavItem {
 
 export const site: SiteConfig = {
   name: "Achhaya Pathak",
-  title: "Backend & DevOps Engineer",
-  location: "India",
-  email: "achhayapathak@gmail.com",
+  title: "Building JoinUp | IIT Guwahati'23",
+  location: "Delhi, India",
+  email: "achhayapathak11@gmail.com",
   description:
-    "Achhaya Pathak — Backend & DevOps Engineer. Distributed systems, cloud infrastructure, and startup builder, with every role, project and credential on one site.",
+    "Backend & Distributed Systems Engineer specialising in fault-tolerant infrastructure, DevOps, and AI-driven applications.",
   siteUrl: "https://achhayapathak.dev",
   social: [
     {
@@ -161,47 +161,87 @@ export const navItems: NavItem[] = [
 
 export const work: WorkEntry[] = [
   {
-    company: "Startup (Stealth)",
-    role: "Backend Engineer",
-    period: "2025 - Present",
-    dateRange: ["2025-01", null],
+    company: "JoinUp",
+    role: "Co-Founder",
+    period: "March 2025 - Present",
+    dateRange: ["2025-03", null],
     status: "pending",
     stock: "lime",
-    tags: ["Go", "Kubernetes", "AWS", "PostgreSQL", "gRPC"],
+    tags: ["Next.js", "Go", "PostgreSQL", "Redis", "Kafka", "Kubernetes"],
     summary:
-      "Building distributed backend services for a high-growth product. Designing event-driven architecture and deploying to Kubernetes clusters on AWS.",
-    bullets: [
-      "Architected event-driven pipeline processing 50K+ events/day",
-      "Implemented gRPC service mesh with circuit breakers and retries",
-      "Set up CI/CD with GitHub Actions and ArgoCD for GitOps deployments",
-    ],
+      "JoinUp is on a mission to make professional events more discoverable and accessible. By connecting attendees with relevant conferences, meetups, workshops, and networking opportunities, JoinUp helps people learn, connect, and grow their careers.",
   },
   {
-    company: "Previous Company",
+    company: "Marlin",
     role: "Software Engineer",
-    period: "2023 - 2025",
-    dateRange: ["2023-06", "2025-01"],
+    period: "April 2025 - May 2026",
+    dateRange: ["2025-04", "2026-05"],
     status: "cleared",
     stock: "yellow",
-    tags: ["Python", "Docker", "Terraform", "Redis", "PostgreSQL"],
+    tags: ["Kubernetes", "RabbitMQ", "LLMs"],
     summary:
-      "Worked on cloud infrastructure and backend services. Automated deployment pipelines and managed production systems.",
+      "Built an autonomous LLM-driven trading AI agent that executes fully automated token trades on Hyperliquid, processing real-time market data with sub-2000ms decision latency(p95).",
     bullets: [
-      "Reduced deployment time by 70% through Terraform automation",
-      "Built monitoring dashboards with Prometheus and Grafana",
-      "Managed PostgreSQL clusters handling 10M+ rows",
+      "Architected a fault-tolerant microservices system (Executor/Evaluator/Flusher) using RabbitMQ, enabling horizontal scalability, fault isolation, and zero-downtime processing 50+ real-time market signals per minute.",
+      "Designed resilient queue-based orchestration with ack/nack semantics, retries, and auto-reconnect mechanisms, reducing system failures by 99.9%(~1000 → 2 per month) in AI-driven decision pipelines.",
+      "Deployed and managed Kubernetes clusters within Confidential Virtual Machines (CVMs), establishing a zero-trust environment for highly secure AI-sensitive data transfer and processing.",
     ],
   },
   {
-    company: "Internship Co.",
-    role: "Backend Developer Intern",
-    period: "2022 - 2023",
-    dateRange: ["2022-06", "2023-05"],
+    company: "GIST Impact",
+    role: "SDE-1",
+    period: "October 2024 - April 2025",
+    dateRange: ["2024-10", "2025-04"],
     status: "cleared",
     stock: "teal",
-    tags: ["Node.js", "TypeScript", "MongoDB", "Docker"],
+    tags: ["Grafana Stack"],
     summary:
-      "Built REST APIs and microservices. Contributed to containerization of legacy services.",
+      "Consolidated service logs into a centralized framework via Grafana Stack, enhancing developer accessibility and cutting down error resolution time by 35%, leading to a 20% increase in deployment speed.",
+  },
+  {
+    company: "GIST Impact",
+    role: "Associate Software Engineer",
+    period: "February 2024 - October 2024",
+    dateRange: ["2024-02", "2024-10"],
+    status: "cleared",
+    stock: "cobalt",
+    tags: ["GitHub Actions", "Snowflake", "ETL", "CI/CD"],
+    summary:
+      "Managed and scaled infrastructure for SaaS and DaaS platforms powering AI-assisted sustainability analytics workflows.",
+    bullets: [
+      "Managed and scaled infrastructure for SaaS and DaaS platforms powering AI-assisted sustainability analytics workflows, processing ~5 TB of data per month.",
+      "Re-engineered and optimised CI/CD pipelines using GitHub Actions, parallelising build stages, caching dependencies, and eliminating redundant test runs, cutting deployment time from 30 minutes to 5 minutes (6x improvement).",
+      "Automated ETL pipelines in Snowflake, reducing data processing time by 80% and significantly improving the reliability and consistency of production data flows.",
+    ],
+  },
+  {
+    company: "Aristocrat",
+    role: "Game Mathematician",
+    period: "August 2023 - January 2024",
+    dateRange: ["2023-08", "2024-01"],
+    status: "cleared",
+    stock: "magenta",
+    tags: ["JavaScript", "C++"],
+    summary:
+      "Designed mathematical models and wrote simulation codes utilizing JavaScript and C++ for slot games, calculating return to player percentages, hit frequencies, and other metrics as appropriate for markets across the Globe.",
+    bullets: [
+      "Crafted a highly optimized simulation code for the Super Grand Star slot game, establishing a benchmark of excellence within the organization. This optimized code reduced simulation runtime by an impressive 78%.",
+    ],
+  },
+  {
+    company: "Indian Institute of Technology, Indore",
+    role: "Summer Research Intern",
+    period: "April 2021 - May 2021",
+    dateRange: ["2021-04", "2021-05"],
+    status: "cleared",
+    stock: "violet",
+    tags: ["MS Excel", "Python", "Tableau"],
+    summary:
+      "Conducted a seismic data analysis for the Hindukush region of 59255 earthquakes over the years 2000-2020.",
+    bullets: [
+      "Reckoned the b-value for the target region as 1.136 ± 0.007 using the Gutenberg–Richter relation.",
+      "Determined which locations are suitable for construction-related operations after carrying out a study based on a non-uniform division of the region.",
+    ],
   },
 ];
 
@@ -257,28 +297,11 @@ export const projects: ProjectEntry[] = [
 
 export const certifications: CertEntry[] = [
   {
-    name: "AWS Solutions Architect – Associate",
-    issuer: "Amazon Web Services",
-    date: "2024",
-    status: "issued",
-    stock: "violet",
-    credentialId: "AWS-SAA-XXXXX",
-  },
-  {
-    name: "Certified Kubernetes Administrator",
-    issuer: "CNCF",
-    date: "2024",
-    status: "issued",
-    stock: "cobalt",
-    credentialId: "CKA-XXXXX",
-  },
-  {
-    name: "HashiCorp Terraform Associate",
-    issuer: "HashiCorp",
+    name: "Summer Analytics Bootcamp",
+    issuer: "INSPIRE Scholar",
     date: "2023",
     status: "issued",
-    stock: "lime",
-    credentialId: "HCT-XXXXX",
+    stock: "violet",
   },
 ];
 
@@ -286,13 +309,25 @@ export const certifications: CertEntry[] = [
 
 export const education: EduEntry[] = [
   {
-    institution: "University",
-    degree: "B.Tech Computer Science",
-    period: "2020 - 2024",
+    institution: "Indian Institute of Technology, Guwahati",
+    degree: "Master's degree, Mathematics and Computer Science",
+    period: "July 2021 - June 2023",
     status: "cleared",
     stock: "yellow",
-    summary:
-      "Focused on distributed systems, algorithms, and cloud computing. Built multiple projects involving backend architecture and DevOps tooling.",
+  },
+  {
+    institution: "Hansraj College",
+    degree: "Bachelor's degree, Mathematics",
+    period: "July 2018 - June 2021",
+    status: "cleared",
+    stock: "teal",
+  },
+  {
+    institution: "Kendriya vidyalaya",
+    degree: "High School",
+    period: "July 2016 - May 2018",
+    status: "cleared",
+    stock: "magenta",
   },
 ];
 
