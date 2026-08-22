@@ -219,7 +219,7 @@ body {
   font-weight: 500;
   line-height: 1.55;
   overflow-x: clip;
-  cursor: crosshair;
+  cursor: url('/cursor.svg') 4 4, auto !important;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -239,6 +239,10 @@ h4 {
   margin: 0;
   text-transform: uppercase;
   letter-spacing: -0.035em;
+}
+
+a, button, [role="button"] {
+  cursor: url('/cursor-hover.svg') 4 4, pointer !important;
 }
 
 a {
