@@ -107,7 +107,7 @@ export const site: SiteConfig = {
   location: "Delhi, India",
   email: "achhaya.pathak.dev@gmail.com",
   description:
-    "Backend & Distributed Systems Engineer specialising in fault-tolerant infrastructure, DevOps, and AI-driven applications.",
+    "IIT Guwahati MS alum & Backend Engineer with 3 years of building systems that actually scale. I shipped a 0→1 marketplace serving 100K+ monthly requests at 99.99% uptime. Big fan of distributed systems, cloud infra, and writing blazingly fast code 🚀",
   siteUrl: "https://achhaya.com",
   social: [
     {
@@ -155,18 +155,18 @@ export const work: WorkEntry[] = [
     dateRange: ["2025-03", null],
     status: "In-Progress",
     stock: "lime",
-    tags: ["Next.js", "Go", "PostgreSQL", "Redis", "Kafka", "Kubernetes"],
+    tags: ["Next.js", "TypeScript", "Python", "PostgreSQL", "Redis", "Docker", "AWS"],
     summary:
-      "JoinUp is on a mission to make professional events more discoverable and accessible. By connecting attendees with relevant conferences, meetups, workshops, and networking opportunities, JoinUp helps people learn, connect, and grow their careers.",
+      "JoinUp is on a mission to make professional events more discoverable and accessible. By connecting attendees with relevant conferences, meetups, workshops, and networking opportunities, JoinUp helps people learn, connect, and grow their careers."
   },
   {
     company: "Marlin",
     role: "Software Engineer",
-    period: "April 2025 - May 2026",
+    period: "Apr 2025 - May 2026",
     dateRange: ["2025-04", "2026-05"],
     status: "Completed",
     stock: "yellow",
-    tags: ["Kubernetes", "RabbitMQ", "LLMs"],
+    tags: ["Kubernetes", "RabbitMQ", "LLMs", "Microservices"],
     summary:
       "Built an autonomous LLM-driven trading AI agent that executes fully automated token trades on Hyperliquid, processing real-time market data with sub-2000ms decision latency(p95).",
     bullets: [
@@ -176,44 +176,33 @@ export const work: WorkEntry[] = [
     ],
   },
   {
-    company: "GIST Impact",
-    role: "SDE-1",
-    period: "October 2024 - April 2025",
-    dateRange: ["2024-10", "2025-04"],
+    company: "Gist Impact",
+    role: "Software Development Engineer",
+    period: "Feb 2024 - Apr 2025",
+    dateRange: ["2024-02", "2025-04"],
     status: "Completed",
     stock: "teal",
-    tags: ["Grafana Stack"],
+    tags: ["GitHub Actions", "Snowflake", "ETL", "CI/CD", "Grafana Stack"],
     summary:
-      "Consolidated service logs into a centralized framework via Grafana Stack, enhancing developer accessibility and cutting down error resolution time by 35%, leading to a 20% increase in deployment speed.",
-  },
-  {
-    company: "GIST Impact",
-    role: "Associate Software Engineer",
-    period: "February 2024 - October 2024",
-    dateRange: ["2024-02", "2024-10"],
-    status: "Completed",
-    stock: "cobalt",
-    tags: ["GitHub Actions", "Snowflake", "ETL", "CI/CD"],
-    summary:
-      "Managed and scaled infrastructure for SaaS and DaaS platforms powering AI-assisted sustainability analytics workflows.",
-    bullets: [
       "Managed and scaled infrastructure for SaaS and DaaS platforms powering AI-assisted sustainability analytics workflows, processing ~5 TB of data per month.",
+    bullets: [
       "Re-engineered and optimised CI/CD pipelines using GitHub Actions, parallelising build stages, caching dependencies, and eliminating redundant test runs, cutting deployment time from 30 minutes to 5 minutes (6x improvement).",
       "Automated ETL pipelines in Snowflake, reducing data processing time by 80% and significantly improving the reliability and consistency of production data flows.",
+      "Consolidated service logs into a centralised Grafana Stack observability framework, reducing error resolution time by 35% and increasing deployment velocity by 20%.",
     ],
   },
   {
-    company: "Aristocrat",
-    role: "Game Mathematician",
-    period: "August 2023 - January 2024",
+    company: "Aristocrat Gaming",
+    role: "Game Developer",
+    period: "Aug 2023 - Jan 2024",
     dateRange: ["2023-08", "2024-01"],
     status: "Completed",
     stock: "magenta",
-    tags: ["JavaScript", "C++"],
+    tags: ["JavaScript", "C++", "Simulation"],
     summary:
-      "Designed mathematical models and wrote simulation codes utilizing JavaScript and C++ for slot games, calculating return to player percentages, hit frequencies, and other metrics as appropriate for markets across the Globe.",
+      "Designed mathematical models and wrote simulation codes for slot games, calculating return to player percentages, hit frequencies, and other metrics as appropriate for markets across the Globe.",
     bullets: [
-      "Crafted a highly optimized simulation code for the Super Grand Star slot game, establishing a benchmark of excellence within the organization. This optimized code reduced simulation runtime by an impressive 78%.",
+      "Crafted a highly optimised simulation code for the Super Grand Star slot game, establishing a benchmark of excellence within the organisation. The optimised code significantly reduced simulation runtime from 10 hours to 2.5 hours.",
     ],
   },
   {
@@ -242,7 +231,7 @@ export const projects: ProjectEntry[] = [
     period: "2024 - Present",
     status: "In-Progress",
     stock: "cobalt",
-    tags: ["Next.js", "Go", "PostgreSQL", "Redis", "Kafka", "Kubernetes"],
+    tags: ["Next.js", "TypeScript", "Python", "PostgreSQL", "Redis", "Docker", "AWS"],
     summary:
       "A full-stack event platform for discovering, creating, and joining local events. Built with a microservices backend in Go and a Next.js frontend. Features real-time updates via WebSockets and an event recommendation engine.",
     link: "https://github.com/achhayapathak/joinup",
