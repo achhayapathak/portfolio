@@ -27,6 +27,17 @@ export default function CertificationsPage() {
           title={meta.title}
           subtitle={meta.subtitle}
         >
+          {/* Lede */}
+          <p
+            className="prose-form"
+            style={{
+              maxWidth: "56ch",
+              marginBottom: 30,
+              color: "color-mix(in srgb, var(--on-stock) 76%, var(--stock))",
+            }}
+          >
+            {meta.info}
+          </p>
           <div className="content-grid">
             {certifications.map((c) => (
               <SectionReveal key={c.name}>

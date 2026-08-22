@@ -65,7 +65,7 @@ export function LedgerCard({
         <div className="stamp-pos">
           <LedgerStamp
             status={status}
-            rotation={stampRotation ?? (status === "pending" ? -13 : -8)}
+            rotation={stampRotation ?? (status === "In-Progress" ? -13 : -8)}
           />
         </div>
       )}

@@ -43,8 +43,7 @@ export default function OverviewPage() {
               color: "color-mix(in srgb, var(--on-stock) 76%, var(--stock))",
             }}
           >
-            Everything on this site in brief — the latest two entries from each
-            section, with the full ledger one click away.
+            {sectionMeta.overview.info}
           </p>
 
           {/* ── Work ────────────────────────────────────── */}
@@ -110,7 +109,7 @@ export default function OverviewPage() {
             ))}
           </SectionBlock>
 
-          {/* ── Certifications ──────────────────────────── */}
+          {/* ── Certifications (Temporarily disabled for future blog section) ──
           <SectionBlock
             formLabel={`form ${sectionMeta.certifications.form}`}
             subtitle={sectionMeta.certifications.subtitle}
@@ -137,6 +136,7 @@ export default function OverviewPage() {
               </LedgerCard>
             ))}
           </SectionBlock>
+          */}
 
           {/* ── Education ───────────────────────────────── */}
           <SectionBlock

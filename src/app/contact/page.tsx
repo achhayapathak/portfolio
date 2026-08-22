@@ -81,8 +81,7 @@ export default function ContactPage() {
                 "color-mix(in srgb, var(--on-stock) 76%, var(--stock))",
             }}
           >
-            Direct lines, profiles worth your time. Open to backend and
-            platform roles in {site.location}.
+            {meta.info}
           </p>
 
           <SectionReveal>
