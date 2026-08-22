@@ -4,7 +4,6 @@ import { Footer } from "@/components/layout/Footer";
 import { PageSheet } from "@/components/content/PageSheet";
 import { SectionBlock } from "@/components/content/SectionBlock";
 import { LedgerCard } from "@/components/content/LedgerCard";
-import { TagList } from "@/components/content/TagList";
 import Link from "next/link";
 import {
   work,
@@ -65,9 +64,9 @@ export default function OverviewPage() {
                 date={w.period}
                 status={w.status}
                 number={`no. WK-${String(i + 1).padStart(4, "0")}`}
+                tags={w.tags}
               >
                 <p className="prose-form card-summary">{w.summary}</p>
-                <TagList tags={w.tags} />
               </LedgerCard>
             ))}
           </SectionBlock>
@@ -90,21 +89,23 @@ export default function OverviewPage() {
                 date={p.period}
                 status={p.status}
                 number={`no. PR-${String(i + 1).padStart(4, "0")}`}
+                tags={p.tags}
+                action={
+                  p.link ? (
+                    <div style={{ marginTop: 18 }}>
+                      <a
+                        href={p.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="app-btn"
+                      >
+                        View Project →
+                      </a>
+                    </div>
+                  ) : undefined
+                }
               >
                 <p className="prose-form card-summary">{p.summary}</p>
-                <TagList tags={p.tags} />
-                {p.link && (
-                  <div style={{ marginTop: 18 }}>
-                    <a
-                      href={p.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="app-btn"
-                    >
-                      View Project →
-                    </a>
-                  </div>
-                )}
               </LedgerCard>
             ))}
           </SectionBlock>

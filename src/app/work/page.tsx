@@ -4,7 +4,6 @@ import { Masthead } from "@/components/layout/Masthead";
 import { Footer } from "@/components/layout/Footer";
 import { PageSheet } from "@/components/content/PageSheet";
 import { LedgerCard } from "@/components/content/LedgerCard";
-import { TagList } from "@/components/content/TagList";
 import { SectionReveal } from "@/components/content/SectionReveal";
 import { work, sectionMeta, site } from "@/data/content.config";
 
@@ -49,6 +48,7 @@ export default function WorkPage() {
                   date={w.period}
                   status={w.status}
                   number={`no. WK-${String(i + 1).padStart(4, "0")}`}
+                  tags={w.tags}
                 >
                   <p className="prose-form">{w.summary}</p>
                   {w.bullets && (
@@ -60,7 +60,6 @@ export default function WorkPage() {
                       ))}
                     </ul>
                   )}
-                  <TagList tags={w.tags} />
                 </LedgerCard>
               </SectionReveal>
             ))}

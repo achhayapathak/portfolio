@@ -4,7 +4,6 @@ import { Masthead } from "@/components/layout/Masthead";
 import { Footer } from "@/components/layout/Footer";
 import { PageSheet } from "@/components/content/PageSheet";
 import { LedgerCard } from "@/components/content/LedgerCard";
-import { TagList } from "@/components/content/TagList";
 import { SectionReveal } from "@/components/content/SectionReveal";
 import { projects, sectionMeta, site } from "@/data/content.config";
 
@@ -49,21 +48,23 @@ export default function ProjectsPage() {
                   date={p.period}
                   status={p.status}
                   number={`no. PR-${String(i + 1).padStart(4, "0")}`}
+                  tags={p.tags}
+                  action={
+                    p.link ? (
+                      <div style={{ marginTop: 18 }}>
+                        <a
+                          href={p.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="app-btn"
+                        >
+                          View Source →
+                        </a>
+                      </div>
+                    ) : undefined
+                  }
                 >
                   <p className="prose-form">{p.summary}</p>
-                  <TagList tags={p.tags} />
-                  {p.link && (
-                    <div style={{ marginTop: 18 }}>
-                      <a
-                        href={p.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="app-btn"
-                      >
-                        View Source →
-                      </a>
-                    </div>
-                  )}
                 </LedgerCard>
               </SectionReveal>
             ))}

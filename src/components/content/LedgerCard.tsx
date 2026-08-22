@@ -2,6 +2,8 @@
 import React from "react";
 import type { StockColor, EntryStatus } from "@/data/content.config";
 import { LedgerStamp } from "@/components/decorations/LedgerStamp";
+import { ExpandableText } from "@/components/content/ExpandableText";
+import { TagList } from "@/components/content/TagList";
 
 /**
  * LedgerCard — the core brutalist card component.
@@ -17,6 +19,8 @@ export function LedgerCard({
   status,
   stampRotation,
   number,
+  tags,
+  action,
   children,
 }: {
   stock: StockColor;
@@ -26,6 +30,8 @@ export function LedgerCard({
   status?: EntryStatus;
   stampRotation?: number;
   number?: string;
+  tags?: string[];
+  action?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
@@ -56,7 +62,13 @@ export function LedgerCard({
           )}
 
           {/* Card body */}
-          <div className="card-body">{children}</div>
+          <div className="card-body">
+            <ExpandableText lines={4}>
+              {children}
+            </ExpandableText>
+            {tags && <TagList tags={tags} />}
+            {action}
+          </div>
         </article>
       </div>
 
