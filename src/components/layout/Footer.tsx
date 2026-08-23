@@ -63,9 +63,8 @@ export function Footer() {
         <div className="foot-note">
           <p className="lbl">colophon</p>
           <p className="prose-form">
-            Built with Next.js and Tailwind. Every mark on this site — the
-            stamps, the rules, the perforations — is drawn in CSS or SVG. No
-            images.
+          Every mark on this site — the stamps, the perforated edges, the ledger grids — is
+            drawn in code and SVGs. Zero raster images, zero bloat.
           </p>
         </div>
       </div>

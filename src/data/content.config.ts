@@ -178,11 +178,11 @@ export const contactCards: ContactCard[] = [
     description: "the commit log is the CV that cannot round up",
   },
   {
-    title: "Twitter",
+    title: "X (Twitter)",
     icon: "link",
     stock: "magenta",
-    url: "https://twitter.com/achhayapathak",
-    label: "twitter/achhayapathak",
+    url: "https://x.com/frozen_parantha",
+    label: "x/frozen_parantha",
     description: "for the conversations that want a bit of sass"
   }
 ];
