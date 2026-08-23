@@ -212,7 +212,7 @@ export const navItems: NavItem[] = [
   // { label: "certifications", href: "/certifications", stock: "violet" }, // Temporarily disabled for future blog section
   { label: "Education", href: "/education", stock: "yellow" },
   { label: "Volunteering", href: "/volunteering", stock: "magenta" },
-  { label: "Contact", href: "/contact", stock: "orange" },
+  { label: "Connect", href: "/contact", stock: "orange" },
 ];
 
 // ── Work Experience ──────────────────────────────────────────
@@ -530,7 +530,7 @@ export const sectionMeta = {
   contact: {
     form: "CX-06",
     subtitle: "get in touch",
-    title: "Contact",
+    title: "Connect",
     info: "Direct lines, profiles worth your time. Open to backend and platform roles.",
     stock: "orange" as StockColor,
   },

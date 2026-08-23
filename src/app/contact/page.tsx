@@ -9,7 +9,7 @@ import { SectionReveal } from "@/components/content/SectionReveal";
 import { contactCards, sectionMeta, site } from "@/data/content.config";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Connect",
   description: `Get in touch with ${site.name} — ${site.title}.`,
 };
 
