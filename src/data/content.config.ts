@@ -372,14 +372,14 @@ export const education: EduEntry[] = [
     period: "July 2021 - June 2023",
     status: "Completed",
     summary:"Completed my masters in mathematics and computing with specialization in courses such as Graph Theory, Optimization Theory, Probabilistic Method, Data Structure & Algorithm, Advanced Algorithms, etc. Also worked on research on Blockchain and wrote a research paper on it.",
-    stock: "lime",
+    stock: "violet",
   },
   {
     institution: "Hansraj College, University of Delhi",
     degree: "Bachelor's degree, Mathematics",
     period: "July 2018 - June 2021",
     status: "Completed",
-    stock: "teal",
+    stock: "orange",
     summary:"Completed my bachelors in mathematics with minor in Computer Science. Key courses include Real Analysis, Number Theory, Data Structures and Algorithms, Operating Systems, Computer Networking, Probability Theory and Statistics, etc."
   }
 ];
@@ -391,7 +391,7 @@ export const volunteering: VolunteerEntry[] = [
     org: "Open Source Community",
     role: "Contributor",
     period: "2023 - Present",
-    stock: "yellow",
+    stock: "cobalt",
     summary:
       "Contributing to open-source projects along with maintaining some of them. Reviewing Pull requests, responding to issues, etc."
   },
