@@ -39,13 +39,14 @@ export default function EducationPage() {
             {meta.info}
           </p>
           <div className="content-grid">
-            {education.map((e) => (
+            {education.map((e, i) => (
               <SectionReveal key={e.institution}>
                 <LedgerCard
                   stock={e.stock}
                   headTitle={e.degree}
                   headSubtitle={e.institution}
                   date={e.period}
+                  number={`no. ED-${String(i + 1).padStart(2, "0")}`}
                   status={e.status}
                 >
                   {e.summary && (

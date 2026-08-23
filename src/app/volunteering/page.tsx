@@ -39,13 +39,14 @@ export default function VolunteeringPage() {
             {meta.info}
           </p>
           <div className="content-grid">
-            {volunteering.map((v) => (
+            {volunteering.map((v, i) => (
               <SectionReveal key={v.org}>
                 <LedgerCard
                   stock={v.stock}
                   headTitle={v.role}
                   headSubtitle={v.org}
                   date={v.period}
+                  number={`no. VO-${String(i + 1).padStart(2, "0")}`}
                   status={v.status}
                 >
                   {v.summary && (

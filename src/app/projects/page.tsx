@@ -47,19 +47,31 @@ export default function ProjectsPage() {
                   headSubtitle={p.tagline}
                   date={p.period}
                   status={p.status}
-                  number={`no. PR-${String(i + 1).padStart(4, "0")}`}
+                  number={`no. PR-${String(i + 1).padStart(2, "0")}`}
                   tags={p.tags}
                   action={
-                    p.link ? (
-                      <div style={{ marginTop: 18 }}>
-                        <a
-                          href={p.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="app-btn"
-                        >
-                          View Source →
-                        </a>
+                    (p.github || p.website) ? (
+                      <div style={{ display: "flex", gap: "10px", marginTop: 18, flexWrap: "wrap" }}>
+                        {p.github && (
+                          <a
+                            href={p.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="app-btn"
+                          >
+                            Source Code →
+                          </a>
+                        )}
+                        {p.website && (
+                          <a
+                            href={p.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="app-btn"
+                          >
+                            Live Website →
+                          </a>
+                        )}
                       </div>
                     ) : undefined
                   }

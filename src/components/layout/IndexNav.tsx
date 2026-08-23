@@ -59,7 +59,7 @@ export function IndexNav() {
           border: 2px solid var(--ink);
           background: var(--paper);
           font-family: var(--font-mono);
-          text-transform: lowercase;
+          text-transform: capitalize;
           transition: box-shadow 0.2s ease, transform 0.2s ease;
           cursor: pointer;
         }

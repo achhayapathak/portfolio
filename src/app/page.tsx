@@ -63,7 +63,7 @@ export default function OverviewPage() {
                 headSubtitle={w.company}
                 date={w.period}
                 status={w.status}
-                number={`no. WK-${String(i + 1).padStart(4, "0")}`}
+                number={`no. WK-${String(i + 1).padStart(2, "0")}`}
                 tags={w.tags}
               >
                 <p className="prose-form card-summary">{w.summary}</p>
@@ -88,19 +88,31 @@ export default function OverviewPage() {
                 headSubtitle={p.tagline}
                 date={p.period}
                 status={p.status}
-                number={`no. PR-${String(i + 1).padStart(4, "0")}`}
+                number={`no. PR-${String(i + 1).padStart(2, "0")}`}
                 tags={p.tags}
                 action={
-                  p.link ? (
-                    <div style={{ marginTop: 18 }}>
-                      <a
-                        href={p.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="app-btn"
-                      >
-                        View Project →
-                      </a>
+                  (p.github || p.website) ? (
+                    <div style={{ display: "flex", gap: "10px", marginTop: 18, flexWrap: "wrap" }}>
+                      {p.github && (
+                        <a
+                          href={p.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="app-btn"
+                        >
+                          Source Code →
+                        </a>
+                      )}
+                      {p.website && (
+                        <a
+                          href={p.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="app-btn"
+                        >
+                          Live Website →
+                        </a>
+                      )}
                     </div>
                   ) : undefined
                 }
@@ -127,7 +139,7 @@ export default function OverviewPage() {
                 headSubtitle={c.issuer}
                 date={c.date}
                 status={c.status}
-                number={`no. CT-${String(i + 1).padStart(4, "0")}`}
+                number={`no. CT-${String(i + 1).padStart(2, "0")}`}
               >
                 {c.credentialId && (
                   <p className="lbl" style={{ marginTop: 4 }}>
@@ -156,7 +168,7 @@ export default function OverviewPage() {
                 headSubtitle={e.institution}
                 date={e.period}
                 status={e.status}
-                number={`no. ED-${String(i + 1).padStart(4, "0")}`}
+                number={`no. ED-${String(i + 1).padStart(2, "0")}`}
               >
                 {e.summary && (
                   <p className="prose-form card-summary">{e.summary}</p>
@@ -182,7 +194,7 @@ export default function OverviewPage() {
                 headSubtitle={v.org}
                 date={v.period}
                 status={v.status}
-                number={`no. VL-${String(i + 1).padStart(4, "0")}`}
+                number={`no. VL-${String(i + 1).padStart(2, "0")}`}
               >
                 {v.summary && (
                   <p className="prose-form card-summary">{v.summary}</p>

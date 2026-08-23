@@ -70,7 +70,7 @@
   --on-yellow: var(--color-black);
   --on-magenta: var(--color-black);
   --on-teal: var(--color-black);
-  --on-cobalt: var(--color-paper);
+  --on-cobalt: var(--color-black);
   --on-lime: var(--color-black);
   --on-violet: var(--color-black);
   --on-orange: var(--color-black);
@@ -409,7 +409,7 @@ svg {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding: 10px 18px;
+  padding: 8px 12px;
   background: var(--on-stock);
   color: var(--stock);
   border: 0 solid var(--ground);

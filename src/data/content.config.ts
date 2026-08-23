@@ -55,7 +55,8 @@ export interface ProjectEntry {
   stock: StockColor;
   tags: string[];
   summary: string;
-  link?: string;
+  github?: string;
+  website?: string;
   featured?: boolean;
 }
 
@@ -136,13 +137,13 @@ export const site: SiteConfig = {
 // ── Navigation ───────────────────────────────────────────────
 
 export const navItems: NavItem[] = [
-  { label: "overview", href: "/", stock: "cream" },
-  { label: "work", href: "/work", stock: "lime" },
-  { label: "projects", href: "/projects", stock: "cobalt" },
+  { label: "Overview", href: "/", stock: "cream" },
+  { label: "Work", href: "/work", stock: "lime" },
+  { label: "Projects", href: "/projects", stock: "cobalt" },
   // { label: "certifications", href: "/certifications", stock: "violet" }, // Temporarily disabled for future blog section
-  { label: "education", href: "/education", stock: "yellow" },
-  { label: "volunteering", href: "/volunteering", stock: "magenta" },
-  { label: "contact", href: "/contact", stock: "orange" },
+  { label: "Education", href: "/education", stock: "yellow" },
+  { label: "Volunteering", href: "/volunteering", stock: "magenta" },
+  { label: "Contact", href: "/contact", stock: "orange" },
 ];
 
 // ── Work Experience ──────────────────────────────────────────
@@ -154,10 +155,16 @@ export const work: WorkEntry[] = [
     period: "March 2025 - Present",
     dateRange: ["2025-03", null],
     status: "In-Progress",
-    stock: "lime",
-    tags: ["Next.js", "TypeScript", "Python", "PostgreSQL", "Redis", "Docker", "AWS"],
+    stock: "teal",
+    tags: ["Leadership", "Growth", "Next.js", "TypeScript", "Python", "PostgreSQL", "Redis", "Docker", "AWS"],
     summary:
-      "JoinUp is on a mission to make professional events more discoverable and accessible. By connecting attendees with relevant conferences, meetups, workshops, and networking opportunities, JoinUp helps people learn, connect, and grow their careers."
+      "JoinUp is on a mission to make professional events more discoverable and accessible. By connecting attendees with relevant conferences, meetups, workshops, and networking opportunities, JoinUp helps people learn, connect, and grow their careers. For hosts, it's an entire operating system for them.",
+    bullets: [
+      "Architected and scaled JoinUp (0→1), a production-grade professional events marketplace, owning end-to-end backend, infrastructure, and deployment across AWS and GCP.",
+      "Built an SEO-optimised Next.js (App Router) frontend with SSR, dynamic metadata, and sitemap/robots configuration, driving 3,000+ organic users/month, improving website conversion by 8%.",
+      "Designed a geo-spatial discovery system (Google Maps API + PostgreSQL) delivering low-latency, location-based recommendations to 500+ DAU at sub-500ms p99.",
+      "Implemented Python-based event crawlers and ETL pipelines with Redis caching, PostgreSQL-powered event matching, and built-in admin dashboard for event managers."
+    ]
   },
   {
     company: "Marlin",
@@ -166,12 +173,12 @@ export const work: WorkEntry[] = [
     dateRange: ["2025-04", "2026-05"],
     status: "Completed",
     stock: "yellow",
-    tags: ["Kubernetes", "RabbitMQ", "LLMs", "Microservices"],
+    tags: ["Rust", "Agentic AI", "LLM", "RabbitMQ", "Kubernetes", "Microservices"],
     summary:
-      "Built an autonomous LLM-driven trading AI agent that executes fully automated token trades on Hyperliquid, processing real-time market data with sub-2000ms decision latency(p95).",
+      "Built an autonomous LLM-driven trading AI agent that executes fully automated token trades on Hyperliquid, based on the condition set by user such as market trends, community sentiment, recent news, tweets, etc. It can also be used to copy trade of sharks or whales.",
     bullets: [
       "Architected a fault-tolerant microservices system (Executor/Evaluator/Flusher) using RabbitMQ, enabling horizontal scalability, fault isolation, and zero-downtime processing 50+ real-time market signals per minute.",
-      "Designed resilient queue-based orchestration with ack/nack semantics, retries, and auto-reconnect mechanisms, reducing system failures by 99.9%(~1000 → 2 per month) in AI-driven decision pipelines.",
+      "Designed resilient queue-based orchestration with ack/nack semantics, retries, and auto-reconnect mechanisms, reducing system failures in AI-driven decision pipelines.",
       "Deployed and managed Kubernetes clusters within Confidential Virtual Machines (CVMs), establishing a zero-trust environment for highly secure AI-sensitive data transfer and processing.",
     ],
   },
@@ -181,14 +188,15 @@ export const work: WorkEntry[] = [
     period: "Feb 2024 - Apr 2025",
     dateRange: ["2024-02", "2025-04"],
     status: "Completed",
-    stock: "teal",
-    tags: ["GitHub Actions", "Snowflake", "ETL", "CI/CD", "Grafana Stack"],
+    stock: "cream",
+    tags: ["Python", "PostgreSQL", "Snowflake", "ETL", "CI/CD", "Grafana Stack", "AWS"],
     summary:
-      "Managed and scaled infrastructure for SaaS and DaaS platforms powering AI-assisted sustainability analytics workflows, processing ~5 TB of data per month.",
+      "Managed and scaled infrastructure for SaaS and DaaS platforms powering AI-assisted sustainability analytics workflows, processing ~5 TB of data per month. Worked on enhancing the existing platform's reliability, scalability, and performance.",
     bullets: [
       "Re-engineered and optimised CI/CD pipelines using GitHub Actions, parallelising build stages, caching dependencies, and eliminating redundant test runs, cutting deployment time from 30 minutes to 5 minutes (6x improvement).",
       "Automated ETL pipelines in Snowflake, reducing data processing time by 80% and significantly improving the reliability and consistency of production data flows.",
       "Consolidated service logs into a centralised Grafana Stack observability framework, reducing error resolution time by 35% and increasing deployment velocity by 20%.",
+      "Streamlined and optimised data ingestion and processing workflows for both SaaS and DaaS platforms, resulting in an 80% reduction in data processing time and a significant improvement in overall system reliability and performance."
     ],
   },
   {
@@ -200,10 +208,7 @@ export const work: WorkEntry[] = [
     stock: "magenta",
     tags: ["JavaScript", "C++", "Simulation"],
     summary:
-      "Designed mathematical models and wrote simulation codes for slot games, calculating return to player percentages, hit frequencies, and other metrics as appropriate for markets across the Globe.",
-    bullets: [
-      "Crafted a highly optimised simulation code for the Super Grand Star slot game, establishing a benchmark of excellence within the organisation. The optimised code significantly reduced simulation runtime from 10 hours to 2.5 hours.",
-    ],
+      "Designed mathematical models and wrote simulation codes for slot games, calculating return to player percentages, hit frequencies, and other metrics as appropriate for markets across the Globe. Crafted a highly optimised simulation code for the Super Grand Star slot game, establishing a benchmark of excellence within the organisation. The optimised code significantly reduced simulation runtime from 10 hours to 2.5 hours.",
   },
   {
     company: "Indian Institute of Technology, Indore",
@@ -214,11 +219,7 @@ export const work: WorkEntry[] = [
     stock: "violet",
     tags: ["MS Excel", "Python", "Tableau"],
     summary:
-      "Conducted a seismic data analysis for the Hindukush region of 59255 earthquakes over the years 2000-2020.",
-    bullets: [
-      "Reckoned the b-value for the target region as 1.136 ± 0.007 using the Gutenberg–Richter relation.",
-      "Determined which locations are suitable for construction-related operations after carrying out a study based on a non-uniform division of the region.",
-    ],
+      "Conducted a seismic data analysis for the Hindukush region of 59255 earthquakes over the years 2000-2020. Reckoned the b-value for the target region as 1.136 ± 0.007 using the Gutenberg–Richter relation. Determined which locations are suitable for construction-related operations after carrying out a study based on a non-uniform division of the region."
   },
 ];
 
@@ -228,59 +229,73 @@ export const projects: ProjectEntry[] = [
   {
     name: "JoinUp",
     tagline: "Event discovery & social platform",
-    period: "2024 - Present",
+    period: "2025 - Present",
     status: "In-Progress",
-    stock: "cobalt",
+    stock: "lime",
     tags: ["Next.js", "TypeScript", "Python", "PostgreSQL", "Redis", "Docker", "AWS"],
     summary:
-      "A full-stack event platform for discovering, creating, and joining local events. Built with a microservices backend in Go and a Next.js frontend. Features real-time updates via WebSockets and an event recommendation engine.",
-    link: "https://github.com/achhayapathak/joinup",
+      "A full-stack event marketplace for discovering, creating, and joining local events. Built with a microservices backend in TypeScript and a Next.js frontend. JoinUp provides a personalised feed of events to users based on their interests and preferences. For hosts, its an end-to-end booking management and verification solution.",
+    github: "https://github.com/joinupdev",
+    website: "https://joinup.dev",
     featured: true,
   },
   {
     name: "Distributed Document Search",
     tagline: "Production grade distributed search service",
-    period: "2024",
+    period: "2026",
     status: "Completed",
     stock: "magenta",
-    tags: ["TypeScript", "Distributed Systems", "Multi-tenancy"],
+    tags: ["TypeScript", "Distributed Systems", "Multi-tenancy", "Elasticsearch", "Kafka", "Redis", "AWS"],
     summary:
-      "A production grade distributed document search service which supports multi-tenancy.",
-    link: "https://github.com/achhayapathak/distributed-document-search",
+      "A working prototype of a distributed document search service demonstrating enterprise-grade architectural patterns including multi-tenancy, async processing, caching, and full-text search. The service is capable of searching a text among millions of files with a sub-200 ms speed.",
+    github: "https://github.com/achhayapathak/distributed-document-search",
+  },
+  {
+    name: "Event Aggregation Engine",
+    tagline: "Event aggregation engine for event discovery platforms",
+    period: "2026 - Present",
+    status: "In-Progress",
+    stock: "teal",
+    tags: ["Python", "Agentic AI", "RabbitMQ", "Firecrawl", "Redis", "VectorDB"],
+    summary:
+      "An event aggregation engine for event discovery platforms. It aggregates events from various sources and returns them in a centralised location with a consistent format and structure using Agentic AI.",
+    github: "https://github.com/joinupdev",
   },
   {
     name: "Job Assist AI",
     tagline: "AI tool for job applications",
-    period: "2024",
-    status: "Completed",
+    period: "2026 - Present",
+    status: "In-Progress",
     stock: "violet",
-    tags: ["TypeScript", "AI", "Backend", "Frontend"],
+    tags: ["TypeScript", "Agentic AI", "Automation", "LLM", "Next.js"],
     summary:
-      "The backend and frontend of Job Assist AI, an AI tool to help with job applications.",
-    link: "https://github.com/achhayapathak/job-assist-ai-backend",
-  },
-  {
-    name: "The Perfect Backend",
-    tagline: "Ideal microservices backend system",
-    period: "2023",
-    status: "Completed",
-    stock: "teal",
-    tags: ["JavaScript", "Microservices", "Backend"],
-    summary:
-      "Just me trying to write an ideal microservices based backend system.",
-    link: "https://github.com/achhayapathak/ThePerfectBackend",
+      "An AI tool to help with job applications. It takes your resume, crawls the internet for relevant jobs for you, extracts the most important details from job descriptions along with recruiter details, and helps you generate an ATS friendly version of your resume for each application.",
+    github: "https://github.com/achhayapathak/job-assist-ai-backend",
   },
   {
     name: "Termtalk",
     tagline: "Secure CLI Chat",
-    period: "2023",
+    period: "2024 - 2025",
     status: "Completed",
     stock: "orange",
-    tags: ["JavaScript", "CLI", "NPM"],
+    tags: ["Websockets", "JavaScript", "CLI", "NPM"],
     summary:
-      "Npm package to securely chat with your friend through your CLI.",
-    link: "https://github.com/achhayapathak/termtalk",
+      "Engineered an open-source NPM package enabling secure, real-time communication between remote systems via the terminal using Node.js and Socket.io. Maintained high-level security through measures like local server hosting, encrypted message transmission, and automatic chat disposal upon server termination, ensuring utmost security.",
+    github: "https://github.com/achhayapathak/termtalk",
+    website: "https://www.npmjs.com/package/termtalk",
   },
+  {
+    name: "Research Publication - Blockchain",
+    tagline: "Optimal Payment Splitting in Bitcoin's Lightning Network",
+    period: "2023",
+    status: "Completed",
+    stock: "cream",
+    tags: ["Bitcoin", "Lightning Network", "Smart Contracts", "Blockchain"],
+    summary:
+      "Studied the Blockchain trilemma and its resolution through the Lightning Network’s scalability solutions. Designed an efficient fee structure for the Lightning Network to prevent network saturation and ensure network liquidity. Developed a Dynamic Programming algorithm to minimize user expenditure on fees during payment transactions.",
+    website: "https://drive.google.com/file/d/1u62MY5as4VtPEIxrFUJDhAmase0_LATJ/view?pli=1",
+  }
+
 ];
 
 // ── Certifications ───────────────────────────────────────────

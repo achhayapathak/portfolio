@@ -91,7 +91,7 @@ export default function ContactPage() {
                   key={c.title}
                   stock={c.stock}
                   headTitle={c.title}
-                  number={`no. CT-${String(i + 1).padStart(4, "0")}`}
+                  number={`no. CT-${String(i + 1).padStart(2, "0")}`}
                 >
                   <a
                     href={c.url}

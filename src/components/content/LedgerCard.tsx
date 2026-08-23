@@ -137,6 +137,7 @@ export function LedgerCard({
           flex: none;
           white-space: nowrap;
           opacity: 0.5;
+          color: #ffffff
         }
         .card-date-bar {
           padding: 6px 16px;

@@ -47,7 +47,7 @@ export default function WorkPage() {
                   headSubtitle={w.company}
                   date={w.period}
                   status={w.status}
-                  number={`no. WK-${String(i + 1).padStart(4, "0")}`}
+                  number={`no. WK-${String(i + 1).padStart(2, "0")}`}
                   tags={w.tags}
                 >
                   <p className="prose-form">{w.summary}</p>

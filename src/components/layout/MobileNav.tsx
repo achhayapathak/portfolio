@@ -172,7 +172,7 @@ export function MobileNav() {
           font-family: var(--font-mono);
           font-size: 1.15rem;
           font-weight: 700;
-          text-transform: lowercase;
+          text-transform: capitalize;
           letter-spacing: 0.02em;
           text-decoration: none;
         }
