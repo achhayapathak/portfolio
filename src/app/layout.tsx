@@ -92,15 +92,17 @@ export default function RootLayout({
           }}
         />
 
-        {/* Inline script to prevent FOUC on dark mode */}
+        {/* Inline script to prevent FOUC on dark mode — default is light */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
                   var stored = localStorage.getItem('theme');
-                  if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  if (stored === 'dark') {
                     document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
                   }
                 } catch(e) {}
               })();

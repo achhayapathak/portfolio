@@ -35,7 +35,12 @@ export function Footer() {
           <p className="lbl">contact</p>
           <ul className="links">
             <li>
-              <a className="num" href={`mailto:${site.email}`}>
+              <a
+                className="num"
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${site.email}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Glyph name="mail" className="ico" size={16} />
                 <span>{site.email}</span>
               </a>

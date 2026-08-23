@@ -13,17 +13,13 @@ export function DarkModeToggle() {
 
   useEffect(() => {
     setMounted(true);
-    // Check localStorage first, then system preference
     const stored = localStorage.getItem("theme");
     if (stored === "dark") {
       setDark(true);
       document.documentElement.classList.add("dark");
-    } else if (stored === "light") {
+    } else {
       setDark(false);
       document.documentElement.classList.remove("dark");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setDark(true);
-      document.documentElement.classList.add("dark");
     }
   }, []);
 

@@ -157,7 +157,7 @@ export const contactCards: ContactCard[] = [
     title: "Email",
     icon: "mail",
     stock: "lime",
-    url: `mailto:${site.email}`,
+    url: `https://mail.google.com/mail/?view=cm&fs=1&to=${site.email}`,
     label: site.email,
     description: "best for anything that needs a written trail",
   },
