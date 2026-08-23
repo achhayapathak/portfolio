@@ -33,6 +33,16 @@ export interface SocialLink {
   url: string;
   label: string;
   icon: string; // Glyph name
+  showInFooter?: boolean;
+}
+
+export interface ContactCard {
+  title: string;
+  icon: string; // GlyphName
+  stock: StockColor;
+  url: string;
+  label: string;
+  description: string;
 }
 
 export interface WorkEntry {
@@ -82,7 +92,7 @@ export interface VolunteerEntry {
   org: string;
   role: string;
   period: string;
-  status: EntryStatus;
+  status?: EntryStatus;
   stock: StockColor;
   summary?: string;
 }
@@ -116,7 +126,15 @@ export const site: SiteConfig = {
       url: "https://linkedin.com/in/achhayapathak",
       label: "linkedin/achhayapathak",
       icon: "card",
-    }
+      showInFooter: true,
+    },
+    {
+      platform: "GitHub",
+      url: "https://github.com/achhayapathak",
+      label: "github/achhayapathak",
+      icon: "code",
+      showInFooter: false,
+    },
   ],
   knowsAbout: [
     "Go",
@@ -133,6 +151,41 @@ export const site: SiteConfig = {
     "Distributed Systems",
   ],
 };
+
+export const contactCards: ContactCard[] = [
+  {
+    title: "Email",
+    icon: "mail",
+    stock: "lime",
+    url: `mailto:${site.email}`,
+    label: site.email,
+    description: "best for anything that needs a written trail",
+  },
+  {
+    title: "LinkedIn",
+    icon: "card",
+    stock: "violet",
+    url: "https://linkedin.com/in/achhayapathak",
+    label: "linkedin/achhayapathak",
+    description: "for the conversations that want a recruiter in them",
+  },
+  {
+    title: "GitHub",
+    icon: "code",
+    stock: "yellow",
+    url: "https://github.com/achhayapathak",
+    label: "github/achhayapathak",
+    description: "the commit log is the CV that cannot round up",
+  },
+  {
+    title: "Twitter",
+    icon: "link",
+    stock: "magenta",
+    url: "https://twitter.com/achhayapathak",
+    label: "twitter/achhayapathak",
+    description: "for the conversations that want a bit of sass"
+  }
+];
 
 // ── Navigation ───────────────────────────────────────────────
 
@@ -315,25 +368,20 @@ export const certifications: CertEntry[] = [
 export const education: EduEntry[] = [
   {
     institution: "Indian Institute of Technology, Guwahati",
-    degree: "Master's degree, Mathematics and Computer Science",
+    degree: "Master's degree, Mathematics and Computing",
     period: "July 2021 - June 2023",
     status: "Completed",
-    stock: "yellow",
+    summary:"Completed my masters in mathematics and computing with specialization in courses such as Graph Theory, Optimization Theory, Probabilistic Method, Data Structure & Algorithm, Advanced Algorithms, etc. Also worked on research on Blockchain and wrote a research paper on it.",
+    stock: "lime",
   },
   {
-    institution: "Hansraj College",
+    institution: "Hansraj College, University of Delhi",
     degree: "Bachelor's degree, Mathematics",
     period: "July 2018 - June 2021",
     status: "Completed",
     stock: "teal",
-  },
-  {
-    institution: "Kendriya vidyalaya",
-    degree: "High School",
-    period: "July 2016 - May 2018",
-    status: "Completed",
-    stock: "magenta",
-  },
+    summary:"Completed my bachelors in mathematics with minor in Computer Science. Key courses include Real Analysis, Number Theory, Data Structures and Algorithms, Operating Systems, Computer Networking, Probability Theory and Statistics, etc."
+  }
 ];
 
 // ── Volunteering ─────────────────────────────────────────────
@@ -341,61 +389,79 @@ export const education: EduEntry[] = [
 export const volunteering: VolunteerEntry[] = [
   {
     org: "Open Source Community",
-    role: "Contributor & Mentor",
+    role: "Contributor",
     period: "2023 - Present",
-    status: "Completed",
-    stock: "magenta",
+    stock: "yellow",
     summary:
-      "Contributing to open-source infrastructure tools. Mentoring new contributors and reviewing pull requests.",
+      "Contributing to open-source projects along with maintaining some of them. Reviewing Pull requests, responding to issues, etc."
   },
   {
-    org: "College Tech Club",
-    role: "Technical Lead",
-    period: "2022 - 2024",
-    status: "Completed",
+    org: "Guidance & Mentorship Programs",
+    role: "Mentor",
+    period: "2025 - Present",
     stock: "teal",
     summary:
-      "Led a team of 15 members. Organized hackathons, workshops on cloud computing, and technical talks.",
+      "Guiding students in technical and career development. Mentoring fellow builders with technical aspect of their products.",
   },
+  {
+    org: "Technical Events",
+    role: "Speaker",
+    period: "2025 - Present",
+    stock: "violet",
+    summary:
+      "Spoken at various tech workshops and meetups on topics such as System Design, Agentic AI, Distributed Systems, etc.",
+  }
 ];
 
 // ── Ticker Entries ───────────────────────────────────────────
 
 export const ticker: TickerEntry[] = [
   {
-    date: "2025-01",
-    org: "Startup (Stealth)",
-    detail: "backend engineer",
+    date: "2026-02",
+    org: "Job Assist AI",
+    detail: "agentic ai · resume & job automation · next.js",
     status: "In-Progress",
   },
   {
-    date: "2024-06",
+    date: "2026-01",
+    org: "Distributed Search",
+    detail: "multi-tenant search · elasticsearch · kafka · redis",
+    status: "Completed",
+  },
+  {
+    date: "2025-03",
     org: "JoinUp",
-    detail: "event platform · go · next.js · kubernetes",
+    detail: "co-founder · events marketplace · aws & next.js",
     status: "In-Progress",
   },
   {
-    date: "2024-03",
-    org: "AWS",
-    detail: "solutions architect associate · certified",
+    date: "2025-04",
+    org: "Marlin",
+    detail: "software engineer · autonomous ai agent · rust & rabbitmq",
+    status: "Completed",
+  },
+  {
+    date: "2024-02",
+    org: "Gist Impact",
+    detail: "sde · etl pipelines · snowflake · grafana stack",
     status: "Completed",
   },
   {
     date: "2024-01",
-    org: "CNCF",
-    detail: "certified kubernetes administrator",
+    org: "Termtalk",
+    detail: "secure cli chat · npm package · websockets",
+    status: "Completed",
+  },
+  {
+    date: "2023-08",
+    org: "Aristocrat Gaming",
+    detail: "game developer · simulation models · c++",
     status: "Completed",
   },
   {
     date: "2023-06",
-    org: "Previous Company",
-    detail: "software engineer · python · terraform",
-    status: "Completed",
-  },
-  {
-    date: "2023-03",
-    org: "Infra Toolkit",
-    detail: "terraform modules · aws · open source",
+    org: "IIT Guwahati",
+    detail: "m.s. mathematics & computing · lightning network research",
     status: "Completed",
   },
 ];

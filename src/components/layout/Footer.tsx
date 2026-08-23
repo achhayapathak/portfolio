@@ -40,7 +40,7 @@ export function Footer() {
                 <span>{site.email}</span>
               </a>
             </li>
-            {site.social.map((s) => (
+            {site.social.filter(s => s.showInFooter !== false).map((s) => (
               <li key={s.platform}>
                 <a
                   className="num"
