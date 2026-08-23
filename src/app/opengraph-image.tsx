@@ -76,7 +76,7 @@ export default async function Image() {
                 color: "#1c272e",
               }}
             >
-              FORM OV-00 · VERIFIED ENGINEERING RECORD
+              FORM OV-00 · VERIFIED RECORD
             </span>
           </div>
 
@@ -175,7 +175,7 @@ export default async function Image() {
               }}
             >
               Building high-throughput distributed systems, event-driven microservices,
-              and cloud infrastructure that scale seamlessly under heavy production load.
+              and autonomous AI/LLM agents that scale seamlessly under heavy production load.
             </p>
 
             {/* Tags / Skills Badges */}
@@ -188,13 +188,13 @@ export default async function Image() {
             >
               {[
                 "Distributed Systems",
+                "Agentic AI",
                 "Go",
                 "Python",
+                "LLMs",
                 "Next.js",
                 "Kubernetes",
-                "Kafka",
                 "PostgreSQL",
-                "AWS",
               ].map((skill, index) => (
                 <span
                   key={index}
@@ -311,7 +311,7 @@ export default async function Image() {
               color: "#4b5563",
             }}
           >
-            Full-Stack & Backend Systems Architecture
+            Backend & Systems Architecture
           </span>
 
           <span
@@ -323,7 +323,7 @@ export default async function Image() {
               textTransform: "uppercase",
             }}
           >
-            STATUS: ACTIVE / OPEN FOR ROLES
+            STATUS: ACTIVE 
           </span>
         </div>
       </div>
