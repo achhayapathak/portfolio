@@ -8,15 +8,54 @@ import { SectionReveal } from "@/components/content/SectionReveal";
 import { volunteering, sectionMeta, site } from "@/data/content.config";
 
 export const metadata: Metadata = {
-  title: "Volunteering",
-  description: `${site.name}'s community work and leadership roles.`,
+  title: "Volunteering & Community",
+  description: `Community involvement, open source contributions, and engineering mentorship by ${site.name}.`,
+  alternates: {
+    canonical: "/volunteering",
+  },
+  openGraph: {
+    title: `Volunteering & Community · ${site.name}`,
+    description: `Open-source contributions, technical speaking, and developer mentorship by ${site.name}.`,
+    url: `${site.siteUrl}/volunteering`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Volunteering & Community · ${site.name}`,
+    description: `Open-source contributions, technical speaking, and developer mentorship by ${site.name}.`,
+  },
 };
 
 export default function VolunteeringPage() {
   const meta = sectionMeta.volunteering;
+  const baseUrl = site.siteUrl.replace(/\/$/, "");
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Overview",
+        item: `${baseUrl}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Volunteering",
+        item: `${baseUrl}/volunteering`,
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <Ticker />
       <Masthead />
 

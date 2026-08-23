@@ -1,31 +1,53 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useSyncExternalStore } from "react";
 import { Glyph } from "@/components/decorations/Glyph";
+
+function subscribeTheme(callback: () => void) {
+  window.addEventListener("storage", callback);
+  const observer = new MutationObserver((mutations) => {
+    for (const m of mutations) {
+      if (m.attributeName === "class") callback();
+    }
+  });
+  observer.observe(document.documentElement, { attributes: true });
+  return () => {
+    window.removeEventListener("storage", callback);
+    observer.disconnect();
+  };
+}
+
+function getThemeSnapshot() {
+  return (
+    document.documentElement.classList.contains("dark") ||
+    localStorage.getItem("theme") === "dark"
+  );
+}
+
+function getServerThemeSnapshot() {
+  return false;
+}
+
+const emptySubscribe = () => () => {};
 
 /**
  * Dark mode toggle button.
  * Persists preference to localStorage, respects system preference.
  */
 export function DarkModeToggle() {
-  const [dark, setDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem("theme");
-    if (stored === "dark") {
-      setDark(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      setDark(false);
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
+  const isMounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+  const isDark = useSyncExternalStore(
+    subscribeTheme,
+    getThemeSnapshot,
+    getServerThemeSnapshot
+  );
 
   const toggle = () => {
-    const next = !dark;
-    setDark(next);
+    const next = !isDark;
     if (next) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -35,17 +57,17 @@ export function DarkModeToggle() {
     }
   };
 
-  if (!mounted) return null;
+  if (!isMounted) return null;
 
   return (
     <button
       onClick={toggle}
       className="toggle-btn"
-      aria-label={`Switch to ${dark ? "light" : "dark"} mode`}
+      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
     >
-      <Glyph name={dark ? "sun" : "moon"} size={17} />
+      <Glyph name={isDark ? "sun" : "moon"} size={17} />
       <span className="lbl" style={{ color: "var(--stock)" }}>
-        {dark ? "dark" : "light"}
+        {isDark ? "dark" : "light"}
       </span>
 
       <style jsx>{`

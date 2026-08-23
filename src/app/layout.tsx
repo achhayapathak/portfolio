@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { site } from "@/data/content.config";
 import "./globals.css";
 
@@ -7,31 +7,119 @@ import "@fontsource/archivo-black/400.css";
 import "@fontsource-variable/space-grotesk";
 import "@fontsource-variable/jetbrains-mono";
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fdf6e3" },
+    { media: "(prefers-color-scheme: dark)", color: "#08080b" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   title: {
-    default: `Overview · ${site.name}`,
+    default: `${site.name} · Software Engineer & Backend Architect`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
-  authors: [{ name: site.name }],
+  applicationName: `${site.name} Portfolio`,
+  authors: [{ name: site.name, url: site.siteUrl }],
+  generator: "Next.js",
+  keywords: [
+    "Achhaya Pathak",
+    "Software Engineer",
+    "Backend Engineer",
+    "Distributed Systems",
+    "Cloud Infrastructure",
+    "IIT Guwahati",
+    "JoinUp",
+    "Go",
+    "Python",
+    "TypeScript",
+    "Rust",
+    "Kubernetes",
+    "Docker",
+    "Kafka",
+    "RabbitMQ",
+    "Redis",
+    "PostgreSQL",
+    "AWS",
+    "GCP",
+    "Next.js",
+    "Microservices",
+    "Event Driven Architecture",
+    "Portfolio",
+  ],
+  creator: site.name,
+  publisher: site.name,
   metadataBase: new URL(site.siteUrl),
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/logo.jpeg", sizes: "192x192", type: "image/jpeg" },
+    ],
+    apple: [
+      { url: "/logo.jpeg", sizes: "180x180", type: "image/jpeg" },
+    ],
+    shortcut: "/icon.svg",
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
     siteName: site.name,
     locale: "en_US",
-    title: `Overview · ${site.name}`,
+    url: site.siteUrl,
+    title: `${site.name} · Software Engineer & Backend Architect`,
     description: site.description,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} — Software Engineer & Backend Architect`,
+        type: "image/png",
+      },
+      {
+        url: "/logo.jpeg",
+        width: 600,
+        height: 600,
+        alt: `${site.name} Logo`,
+        type: "image/jpeg",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    title: `${site.name} · Software Engineer & Backend Architect`,
+    description: site.description,
+    creator: "@frozen_parantha",
+    site: "@frozen_parantha",
+    images: [
+      {
+        url: "/twitter-image",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} — Software Engineer & Backend Architect`,
+      },
+    ],
   },
   robots: {
     index: true,
     follow: true,
-    "max-image-preview": "large" as const,
-    "max-snippet": -1,
-    "max-video-preview": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+  category: "technology",
+  classification: "Portfolio & Engineering Ledger",
   other: {
     "color-scheme": "light dark",
   },
@@ -42,32 +130,86 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const baseUrl = site.siteUrl.replace(/\/$/, "");
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: site.name,
+    url: baseUrl,
+    inLanguage: "en",
+    description: site.description,
+    author: {
+      "@type": "Person",
+      name: site.name,
+      url: baseUrl,
+    },
+  };
+
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${baseUrl}/#person`,
+    name: site.name,
+    alternateName: ["frozen_parantha", "Achhaya"],
+    url: baseUrl,
+    image: `${baseUrl}/logo.jpeg`,
+    jobTitle: site.title,
+    worksFor: {
+      "@type": "Organization",
+      name: "JoinUp",
+      url: "https://joinup.dev",
+    },
+    alumniOf: [
+      {
+        "@type": "EducationalOrganization",
+        name: "Indian Institute of Technology, Guwahati",
+        url: "https://www.iitg.ac.in/",
+      },
+      {
+        "@type": "EducationalOrganization",
+        name: "Hansraj College, University of Delhi",
+        url: "https://www.hansrajcollege.ac.in/",
+      },
+    ],
+    email: `mailto:${site.email}`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Delhi",
+      addressCountry: "IN",
+    },
+    knowsAbout: site.knowsAbout,
+    sameAs: [
+      "https://linkedin.com/in/achhayapathak",
+      "https://github.com/achhayapathak",
+      "https://x.com/frozen_parantha",
+      "https://leetcode.com/u/achhayapathak/",
+    ],
+  };
+
+  const profilePageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    name: `${site.name}'s Engineering Portfolio & Ledger`,
+    url: baseUrl,
+    mainEntity: {
+      "@id": `${baseUrl}/#person`,
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      name: site.name,
+      url: baseUrl,
+    },
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta
-          name="theme-color"
-          content="#fdf6e3"
-          media="(prefers-color-scheme: light)"
-        />
-        <meta
-          name="theme-color"
-          content="#08080b"
-          media="(prefers-color-scheme: dark)"
-        />
-
         {/* Structured Data — WebSite */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: site.name,
-              url: site.siteUrl,
-              inLanguage: "en",
-              author: { "@type": "Person", name: site.name },
-            }),
+            __html: JSON.stringify(websiteSchema),
           }}
         />
 
@@ -75,20 +217,15 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: site.name,
-              url: site.siteUrl,
-              jobTitle: site.title,
-              email: `mailto:${site.email}`,
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "IN",
-              },
-              knowsAbout: site.knowsAbout,
-              sameAs: site.social.map((s) => s.url),
-            }),
+            __html: JSON.stringify(personSchema),
+          }}
+        />
+
+        {/* Structured Data — ProfilePage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(profilePageSchema),
           }}
         />
 

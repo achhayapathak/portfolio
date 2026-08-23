@@ -8,15 +8,54 @@ import { SectionReveal } from "@/components/content/SectionReveal";
 import { education, sectionMeta, site } from "@/data/content.config";
 
 export const metadata: Metadata = {
-  title: "Education",
-  description: `${site.name}'s academic record and education.`,
+  title: "Education & Academics",
+  description: `Academic background of ${site.name} — Master's in Mathematics and Computing from Indian Institute of Technology Guwahati (IIT Guwahati), Bachelor's in Mathematics from Hansraj College, University of Delhi.`,
+  alternates: {
+    canonical: "/education",
+  },
+  openGraph: {
+    title: `Education & Academics · ${site.name}`,
+    description: `Academic background of ${site.name} — M.S. Mathematics & Computing from IIT Guwahati, B.S. Mathematics from Hansraj College, DU.`,
+    url: `${site.siteUrl}/education`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Education & Academics · ${site.name}`,
+    description: `Academic background of ${site.name} — M.S. Mathematics & Computing from IIT Guwahati, B.S. Mathematics from Hansraj College, DU.`,
+  },
 };
 
 export default function EducationPage() {
   const meta = sectionMeta.education;
+  const baseUrl = site.siteUrl.replace(/\/$/, "");
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Overview",
+        item: `${baseUrl}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Education",
+        item: `${baseUrl}/education`,
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <Ticker />
       <Masthead />
 

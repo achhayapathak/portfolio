@@ -4,11 +4,9 @@ import { Footer } from "@/components/layout/Footer";
 import { PageSheet } from "@/components/content/PageSheet";
 import { SectionBlock } from "@/components/content/SectionBlock";
 import { LedgerCard } from "@/components/content/LedgerCard";
-import Link from "next/link";
 import {
   work,
   projects,
-  certifications,
   education,
   volunteering,
   sectionMeta,
@@ -17,7 +15,6 @@ import {
 export default function OverviewPage() {
   const topWork = work.slice(0, 2);
   const topProjects = projects.slice(0, 2);
-  const topCerts = certifications.slice(0, 2);
   const topEdu = education.slice(0, 2);
   const topVol = volunteering.slice(0, 2);
 

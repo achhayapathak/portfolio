@@ -8,15 +8,54 @@ import { SectionReveal } from "@/components/content/SectionReveal";
 import { projects, sectionMeta, site } from "@/data/content.config";
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description: `${site.name}'s projects — things built with code.`,
+  title: "Projects & Systems",
+  description: `Production-grade distributed systems and engineering projects built by ${site.name} — including JoinUp, Distributed Document Search, Event Aggregation Engine, Job Assist AI, and Termtalk.`,
+  alternates: {
+    canonical: "/projects",
+  },
+  openGraph: {
+    title: `Projects & Systems · ${site.name}`,
+    description: `Production systems, distributed search engines, AI automation agents, and open-source packages built by ${site.name}.`,
+    url: `${site.siteUrl}/projects`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Projects & Systems · ${site.name}`,
+    description: `Production systems, distributed search engines, AI automation agents, and open-source packages built by ${site.name}.`,
+  },
 };
 
 export default function ProjectsPage() {
   const meta = sectionMeta.projects;
+  const baseUrl = site.siteUrl.replace(/\/$/, "");
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Overview",
+        item: `${baseUrl}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+        item: `${baseUrl}/projects`,
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <Ticker />
       <Masthead />
 

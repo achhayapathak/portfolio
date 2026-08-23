@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navItems } from "@/data/content.config";
@@ -15,12 +15,16 @@ import { MarksOverlay } from "@/components/decorations/MarksOverlay";
 export function MobileNav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
 
-  // Close on route change
-  useEffect(() => {
+  // Close when pathname changes during render
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setOpen(false);
-    document.body.classList.remove("nav-open");
-  }, [pathname]);
+    if (typeof document !== "undefined") {
+      document.body.classList.remove("nav-open");
+    }
+  }
 
   const toggle = useCallback(() => {
     setOpen((prev) => {

@@ -8,15 +8,54 @@ import { SectionReveal } from "@/components/content/SectionReveal";
 import { work, sectionMeta, site } from "@/data/content.config";
 
 export const metadata: Metadata = {
-  title: "Work",
-  description: `${site.name}'s work experience — roles, responsibilities, and achievements.`,
+  title: "Work Experience",
+  description: `${site.name}'s professional engineering experience across JoinUp, Marlin, Gist Impact, and Aristocrat Gaming — building distributed systems, autonomous AI agents, and high-throughput pipelines.`,
+  alternates: {
+    canonical: "/work",
+  },
+  openGraph: {
+    title: `Work Experience · ${site.name}`,
+    description: `${site.name}'s work experience — engineering leadership, distributed systems, and cloud infrastructure.`,
+    url: `${site.siteUrl}/work`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Work Experience · ${site.name}`,
+    description: `${site.name}'s work experience — engineering leadership, distributed systems, and cloud infrastructure.`,
+  },
 };
 
 export default function WorkPage() {
   const meta = sectionMeta.work;
+  const baseUrl = site.siteUrl.replace(/\/$/, "");
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Overview",
+        item: `${baseUrl}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Work",
+        item: `${baseUrl}/work`,
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <Ticker />
       <Masthead />
 
@@ -27,7 +66,7 @@ export default function WorkPage() {
           title={meta.title}
           subtitle={meta.subtitle}
         >
-                    {/* Lede */}
+          {/* Lede */}
           <p
             className="prose-form"
             style={{

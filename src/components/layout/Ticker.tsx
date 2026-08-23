@@ -8,21 +8,6 @@ import { ticker } from "@/data/content.config";
  * CSS animation with duplicated content for seamless loop.
  */
 export function Ticker() {
-  const cells = ticker.map((t, i) => (
-    <span key={i} className="ticker-cell">
-      <span className="ticker-sym">∆</span>
-      {t.date} · {t.org} · {t.detail} · {t.status}
-    </span>
-  ));
-
-  // Add a "balance carried forward" cell
-  const balanceCell = (
-    <span key="balance" className="ticker-cell">
-      <span className="ticker-sym">∆</span>
-      balance carried forward ·············· portfolio
-    </span>
-  );
-
   return (
     <div className="stock-cream ticker-wrap">
       <div aria-hidden="true" className="ticker-track">
