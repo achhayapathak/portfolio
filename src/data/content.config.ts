@@ -164,15 +164,23 @@ export const contactCards: ContactCard[] = [
   {
     title: "LinkedIn",
     icon: "card",
-    stock: "violet",
+    stock: "cobalt",
     url: "https://linkedin.com/in/achhayapathak",
     label: "linkedin/achhayapathak",
     description: "for the conversations that want a recruiter in them",
   },
   {
+    title: "Resume / CV",
+    icon: "card",
+    stock: "magenta",
+    url: "/Achhaya_Pathak.pdf",
+    label: "resume",
+    description: "comprehensive curriculum vitae covering experience, publications, and skills"
+  },
+  {
     title: "GitHub",
     icon: "code",
-    stock: "yellow",
+    stock: "cream",
     url: "https://github.com/achhayapathak",
     label: "github/achhayapathak",
     description: "the commit log is the CV that cannot round up",
@@ -180,10 +188,18 @@ export const contactCards: ContactCard[] = [
   {
     title: "X (Twitter)",
     icon: "link",
-    stock: "magenta",
+    stock: "teal",
     url: "https://x.com/frozen_parantha",
     label: "x/frozen_parantha",
     description: "for the conversations that want a bit of sass"
+  },
+  {
+    title: "LeetCode",
+    icon: "code",
+    stock: "yellow",
+    url: "https://leetcode.com/u/achhayapathak/",
+    label: "leetcode/achhayapathak",
+    description: "for problem solving, data structures, and algorithms"
   }
 ];
 
