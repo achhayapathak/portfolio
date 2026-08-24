@@ -115,8 +115,8 @@ export interface NavItem {
 export const site: SiteConfig = {
   name: "Achhaya Pathak",
   title: "Software Engineer",
-  location: "Delhi, India",
-  email: "achhaya.pathak.dev@gmail.com",
+  location: "Gurugram, India",
+  email: "info@achhaya.com",
   description:
     "IIT Guwahati MS alum & Backend Engineer with 3 years of building systems that actually scale. I shipped a 0→1 marketplace serving 100K+ monthly requests at 99.99% uptime. Big fan of distributed systems, cloud infra, and writing blazingly fast code 🚀",
   siteUrl: "https://achhaya.com",

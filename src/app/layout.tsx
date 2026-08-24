@@ -175,7 +175,7 @@ export default function RootLayout({
     email: `mailto:${site.email}`,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Delhi",
+      addressLocality: "Gurugram",
       addressCountry: "IN",
     },
     knowsAbout: site.knowsAbout,
