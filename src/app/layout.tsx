@@ -59,13 +59,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/logo.jpeg", sizes: "192x192", type: "image/jpeg" },
     ],
     apple: [
-      { url: "/logo.jpeg", sizes: "180x180", type: "image/jpeg" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: "/icon.svg",
+    shortcut: "/favicon.ico",
   },
   manifest: "/manifest.webmanifest",
   openGraph: {
@@ -77,18 +79,18 @@ export const metadata: Metadata = {
     description: site.description,
     images: [
       {
+        url: `${site.siteUrl}/logo.jpeg`,
+        width: 600,
+        height: 600,
+        alt: `${site.name} Logo`,
+        type: "image/jpeg",
+      },
+      {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: `${site.name} — Software Engineer & Backend Architect`,
         type: "image/png",
-      },
-      {
-        url: "/logo.jpeg",
-        width: 600,
-        height: 600,
-        alt: `${site.name} Logo`,
-        type: "image/jpeg",
       },
     ],
   },
@@ -100,10 +102,10 @@ export const metadata: Metadata = {
     site: "@frozen_parantha",
     images: [
       {
-        url: "/twitter-image",
-        width: 1200,
-        height: 630,
-        alt: `${site.name} — Software Engineer & Backend Architect`,
+        url: `${site.siteUrl}/logo.jpeg`,
+        width: 600,
+        height: 600,
+        alt: `${site.name} Logo`,
       },
     ],
   },
@@ -122,6 +124,10 @@ export const metadata: Metadata = {
   classification: "Portfolio & Engineering Ledger",
   other: {
     "color-scheme": "light dark",
+    "image_src": `${site.siteUrl}/logo.jpeg`,
+    "itemprop:name": `${site.name} · Software Engineer & Backend Architect`,
+    "itemprop:description": site.description,
+    "itemprop:image": `${site.siteUrl}/logo.jpeg`,
   },
 };
 
@@ -139,10 +145,18 @@ export default function RootLayout({
     url: baseUrl,
     inLanguage: "en",
     description: site.description,
+    image: `${baseUrl}/logo.jpeg`,
     author: {
       "@type": "Person",
       name: site.name,
       url: baseUrl,
+      image: `${baseUrl}/logo.jpeg`,
+    },
+    publisher: {
+      "@type": "Person",
+      name: site.name,
+      url: baseUrl,
+      image: `${baseUrl}/logo.jpeg`,
     },
   };
 
@@ -154,11 +168,13 @@ export default function RootLayout({
     alternateName: ["frozen_parantha", "Achhaya"],
     url: baseUrl,
     image: `${baseUrl}/logo.jpeg`,
+    logo: `${baseUrl}/logo.jpeg`,
     jobTitle: site.title,
     worksFor: {
       "@type": "Organization",
       name: "JoinUp",
       url: "https://joinup.dev",
+      logo: `${baseUrl}/logo.jpeg`,
     },
     alumniOf: [
       {
@@ -192,6 +208,11 @@ export default function RootLayout({
     "@type": "ProfilePage",
     name: `${site.name}'s Engineering Portfolio & Ledger`,
     url: baseUrl,
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${baseUrl}/logo.jpeg`,
+      caption: `${site.name} Logo`,
+    },
     mainEntity: {
       "@id": `${baseUrl}/#person`,
     },

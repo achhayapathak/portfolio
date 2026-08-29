@@ -118,7 +118,7 @@ export const site: SiteConfig = {
   location: "Gurugram, India",
   email: "info@achhaya.com",
   description:
-    "IIT Guwahati MS alum & Backend Engineer with 3 years of building systems that actually scale. I shipped a 0→1 marketplace serving 100K+ monthly requests at 99.99% uptime. Big fan of distributed systems, cloud infra, and writing blazingly fast code 🚀",
+    "IIT Guwahati MS alumnus and Software / Backend Engineer with 3+ years of experience architecting distributed systems, cloud infrastructure (AWS/GCP), high-performance web applications (Rust/WASM, Next.js), and autonomous AI agent pipelines.",
   siteUrl: "https://achhaya.com",
   social: [
     {
