@@ -59,10 +59,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
       { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon.svg", type: "image/svg+xml" },
     ],
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
@@ -141,22 +142,26 @@ export default function RootLayout({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${baseUrl}/#website`,
     name: site.name,
-    url: baseUrl,
+    alternateName: ["Achhaya", "Achhaya Pathak Portfolio", "frozen_parantha", "achhaya.com"],
+    url: `${baseUrl}/`,
     inLanguage: "en",
     description: site.description,
     image: `${baseUrl}/logo.jpeg`,
+    logo: `${baseUrl}/logo.jpeg`,
     author: {
       "@type": "Person",
       name: site.name,
-      url: baseUrl,
+      url: `${baseUrl}/`,
       image: `${baseUrl}/logo.jpeg`,
     },
     publisher: {
       "@type": "Person",
       name: site.name,
-      url: baseUrl,
+      url: `${baseUrl}/`,
       image: `${baseUrl}/logo.jpeg`,
+      logo: `${baseUrl}/logo.jpeg`,
     },
   };
 
